@@ -110,6 +110,8 @@ public class NewActivity extends AppCompatActivity {
             }
         });
 
+
+
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -117,10 +119,12 @@ public class NewActivity extends AppCompatActivity {
                 String subtitleTXT = subtitle.getText().toString();
                 String noteTXT  = note.getText().toString();
 
+
                 if(!TextUtils.isEmpty(titleTXT) && !TextUtils.isEmpty(noteTXT))
                 {
                     DBHelper DB = new DBHelper(NewActivity.this);
                     DB.addData(titleTXT, subtitleTXT, noteTXT);
+
 
                     Intent intent = new Intent(NewActivity.this, MainActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -129,8 +133,9 @@ public class NewActivity extends AppCompatActivity {
 
                 }
                 else{
-                    Toast.makeText(NewActivity.this, "Both Fields Required", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(NewActivity.this, "Note title and Note required", Toast.LENGTH_SHORT).show();
                 }
+
 
 
             }
