@@ -5,16 +5,20 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 public class NewActivity extends AppCompatActivity {
 
-    Button done;
+    Button save;
+    EditText title, subtitle, note;
+    DBHelper DB;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -43,15 +47,44 @@ public class NewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new);
 
-        done = findViewById(R.id.button);
+        title = findViewById(R.id.title);
+        subtitle = findViewById(R.id.subtitle);
+        note = findViewById(R.id.note);
 
-        done.setOnClickListener(new View.OnClickListener() {
+
+        save = findViewById(R.id.button);
+
+        DB = new DBHelper(this);
+
+
+        save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String titleTXT = title.getText().toString();
+                String subtitleTXT = subtitle.getText().toString();
+                String noteTXT  = note.getText().toString();
 
-                Intent intent = new Intent(NewActivity.this, MainActivity.class);
-                startActivity(intent);
+                if(!TextUtils.isEmpty(titleTXT) && !TextUtils.isEmpty(noteTXT)){
+                    DBHelper DB = new DBHelper(NewActivity.this);
+                    DB.addData(titleTXT, subtitleTXT, noteTXT);
+
+                    Intent intent = new Intent(NewActivity.this, MainActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
+                    finish();
+
+                }
+                else{
+                    Toast.makeText(NewActivity.this, "Both Fields Required", Toast.LENGTH_SHORT).show();
+                }
+
+
             }
         });
+
+
+
+
+
     }
 }
