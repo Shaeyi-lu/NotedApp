@@ -119,6 +119,9 @@ public class NewActivity extends AppCompatActivity {
                 String subtitleTXT = subtitle.getText().toString();
                 String noteTXT  = note.getText().toString();
 
+                title.setBackgroundColor(Integer.parseInt(chosenNoteColor));
+                subtitle.setBackgroundColor(Integer.parseInt(chosenNoteColor));
+                note.setBackgroundColor(Integer.parseInt(chosenNoteColor));
 
                 if(!TextUtils.isEmpty(titleTXT) && !TextUtils.isEmpty(noteTXT))
                 {
