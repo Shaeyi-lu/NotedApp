@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layoutChooseColor"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    app:layout_behavior="@string/bottom_sheet_behavior">
+
+    <TextView
+        android:id="@+id/textChooseColor"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:includeFontPadding="false"
+        android:text="Choose Note Color"
+        android:textSize="20sp"
+        android:textColor="@color/black"/>
+    <LinearLayout
+        android:id="@+id/layoutNoteColor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal"
+        android:layout_gravity="center_vertical">
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <View
+                android:id="@+id/viewColor1"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:background="@drawable/note_background_color1"/>
+
+            <ImageView
+                android:id="@+id/imageColor1"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:contentDescription="@string/app_name"
+                android:padding="10dp"
+                android:src="@drawable/ic_tick"
+                app:tint="@color/white"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <View
+                android:id="@+id/viewColor2"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:background="@drawable/note_background_color2"/>
+
+            <ImageView
+                android:id="@+id/imageColor2"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:contentDescription="@string/app_name"
+                android:padding="10dp"
+                app:tint="@color/white"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <View
+                android:id="@+id/viewColor3"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:background="@drawable/note_background_color3"/>
+
+            <ImageView
+                android:id="@+id/imageColor3"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:contentDescription="@string/app_name"
+                android:padding="10dp"
+                app:tint="@color/white"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <View
+                android:id="@+id/viewColor4"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:background="@drawable/note_background_color4"/>
+
+            <ImageView
+                android:id="@+id/imageColor4"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:contentDescription="@string/app_name"
+                android:padding="10dp"
+                app:tint="@color/white"/>
+        </FrameLayout>
+
+</LinearLayout>
+</LinearLayout>
