@@ -16,6 +16,7 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String ColumnTitle="title";
     private static final String ColumnSubtitle="subtitle";
     private static final String ColumnNote="note";
+    private static final String Color="color";
     private static final String DatabaseName="MyNotes";
 
     public DBHelper(@Nullable Context context) {
