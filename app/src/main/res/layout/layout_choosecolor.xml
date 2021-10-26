@@ -16,8 +16,8 @@
         android:textAlignment="center"
         android:includeFontPadding="false"
         android:text="Choose Note Color"
-        android:textSize="25sp"
-        android:textColor="@color/black" />
+        android:textSize="20sp"
+        android:textColor="@color/black"/>
     <LinearLayout
         android:id="@+id/layoutNoteColor"
         android:layout_width="match_parent"

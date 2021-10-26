@@ -12,12 +12,15 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 public class NewActivity extends AppCompatActivity {
 
     Button save;
     EditText title, subtitle, note;
+    private String chosenNoteColor;
     DBHelper DB;
 
     @Override
@@ -51,11 +54,61 @@ public class NewActivity extends AppCompatActivity {
         subtitle = findViewById(R.id.subtitle);
         note = findViewById(R.id.note);
 
-
         save = findViewById(R.id.button);
 
         DB = new DBHelper(this);
+        chosenNoteColor = "#333333";
 
+        final LinearLayout layoutChooseColor = findViewById(R.id.layoutChooseColor);
+        final ImageView imageColor1 = layoutChooseColor.findViewById(R.id.imageColor1);
+        final ImageView imageColor2 = layoutChooseColor.findViewById(R.id.imageColor2);
+        final ImageView imageColor3 = layoutChooseColor.findViewById(R.id.imageColor3);
+        final ImageView imageColor4 = layoutChooseColor.findViewById(R.id.imageColor4);
+
+        layoutChooseColor.findViewById(R.id.viewColor1).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                chosenNoteColor = "#333333";
+                imageColor1.setImageResource(R.drawable.ic_tick);
+                imageColor2.setImageResource(0);
+                imageColor3.setImageResource(0);
+                imageColor4.setImageResource(0);
+
+            }
+        });
+
+        layoutChooseColor.findViewById(R.id.viewColor2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                chosenNoteColor = "#FDBE3B";
+                imageColor1.setImageResource(0);
+                imageColor2.setImageResource(R.drawable.ic_tick);
+                imageColor3.setImageResource(0);
+                imageColor4.setImageResource(0);
+            }
+        });
+
+        layoutChooseColor.findViewById(R.id.viewColor3).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                chosenNoteColor = "#FF4842";
+                imageColor1.setImageResource(0);
+                imageColor2.setImageResource(0);
+                imageColor3.setImageResource(R.drawable.ic_tick);
+                imageColor4.setImageResource(0);
+            }
+        });
+
+        layoutChooseColor.findViewById(R.id.viewColor4).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                chosenNoteColor = "##FF03DAC5";
+                imageColor1.setImageResource(0);
+                imageColor2.setImageResource(0);
+                imageColor3.setImageResource(0);
+                imageColor4.setImageResource(R.drawable.ic_tick);
+            }
+        });
 
         save.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,7 +117,8 @@ public class NewActivity extends AppCompatActivity {
                 String subtitleTXT = subtitle.getText().toString();
                 String noteTXT  = note.getText().toString();
 
-                if(!TextUtils.isEmpty(titleTXT) && !TextUtils.isEmpty(noteTXT)){
+                if(!TextUtils.isEmpty(titleTXT) && !TextUtils.isEmpty(noteTXT))
+                {
                     DBHelper DB = new DBHelper(NewActivity.this);
                     DB.addData(titleTXT, subtitleTXT, noteTXT);
 
