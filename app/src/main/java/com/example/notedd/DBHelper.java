@@ -21,6 +21,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public DBHelper(@Nullable Context context) {
         super(context, DatabaseName, null, 1);
+        this.context=context;
     }
 
     @Override
@@ -64,5 +65,23 @@ public class DBHelper extends SQLiteOpenHelper {
             cursor = database.rawQuery(query, null);
         }
         return cursor;
+    }
+
+    void updateNotes(String title, String note, String subtitle, String id){
+        SQLiteDatabase database=this.getWritableDatabase();
+
+        ContentValues cv = new ContentValues();
+        cv.put(ColumnTitle, title);
+        cv.put(ColumnSubtitle, subtitle);
+        cv.put(ColumnNote, note);
+
+
+        long result=database.update(TableName, cv, "id=?", new String[]{id});
+        if(result ==-1) {
+            Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(context, "Done", Toast.LENGTH_SHORT).show();
+        }
     }
 }

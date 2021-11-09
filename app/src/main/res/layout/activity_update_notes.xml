@@ -63,15 +63,15 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/update"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="50dp"
         android:layout_marginLeft="290dp"
         android:background="#C0C0C0"
         android:backgroundTint="#000000"
-        android:text="Done"
+        android:text="Update"
         android:layout_alignParentBottom="true"
-         />
+        />
     <include layout="@layout/layout_choosecolor"/>
 </RelativeLayout>

@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         }
         else{
             while(cursor.moveToNext()){
-                noteList.add(new Model(cursor.getString(0),cursor.getString(1), cursor.getString(2)));
+                noteList.add(new Model(cursor.getString(0),cursor.getString(1), cursor.getString(2), cursor.getString(3)));
             }
         }
     }

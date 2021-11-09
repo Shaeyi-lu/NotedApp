@@ -1,7 +1,9 @@
 package com.example.notedd;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,6 +49,20 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> implemen
         holder.title.setText(notesList.get(position).getTitle());
         holder.subtitle.setText(notesList.get(position).getSubtitle());
         holder.note.setText(notesList.get(position).getNote());
+
+        holder.layout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, UpdateNotesActivity.class);
+
+                intent.putExtra("title", notesList.get(position).getTitle());
+                intent.putExtra("subtitle", notesList.get(position).getSubtitle());
+                intent.putExtra("note", notesList.get(position).getNote());
+                intent.putExtra("id", notesList.get(position).getId());
+
+                activity.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -107,7 +123,5 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> implemen
 
 
         }
-
-
     }
 }

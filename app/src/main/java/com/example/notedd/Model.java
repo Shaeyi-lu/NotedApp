@@ -4,11 +4,21 @@ public class Model {
     String title;
     String subtitle;
     String note;
+    String id;
 
-    public Model(String title, String subtitle, String note) {
+    public Model(String id, String title, String subtitle, String note) {
         this.title = title;
         this.subtitle = subtitle;
         this.note = note;
+        this.id = id;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getTitle() {
